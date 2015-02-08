@@ -1,0 +1,61 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "otherEntityName": "comment",
+            "relationshipType": "one-to-many",
+            "otherEntityNameCapitalized": "Comment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Title",
+            "fieldNameUnderscored": "title"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Content",
+            "fieldNameUnderscored": "content"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "posted",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Posted",
+            "fieldNameUnderscored": "posted"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "voteCount",
+            "fieldType": "Long",
+            "fieldNameCapitalized": "VoteCount",
+            "fieldNameUnderscored": "vote_count"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "averageVote",
+            "fieldType": "BigDecimal",
+            "fieldNameCapitalized": "AverageVote",
+            "fieldNameUnderscored": "average_vote"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "author",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Author",
+            "fieldNameUnderscored": "author"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": true,
+    "fieldsContainLocalDate": true,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": true,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150208224000"
+}
