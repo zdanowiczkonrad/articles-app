@@ -1,0 +1,25 @@
+{
+    "jhipsterApp": {
+        "comment" : {
+            "home": {
+                "title": "Comments",
+                "createLabel": "Créer un nouveau Comment",
+                "createOrEditLabel": "Créer ou éditer un Comment"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Comment {{ id }} ?"
+            },
+            "detail": {
+                "title": "Comment"
+            },
+            "author": "Author",
+            "mail": "Mail",
+            "title": "Title",
+            "content": "Content",
+            "date": "Date",
+            "upvotes": "Upvotes",
+            "article": "article"
+        }
+    }
+}
+

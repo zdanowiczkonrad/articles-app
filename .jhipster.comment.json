@@ -1,0 +1,62 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "otherEntityName": "article",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Article",
+            "otherEntityField": "title"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "author",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Author",
+            "fieldNameUnderscored": "author"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "mail",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Mail",
+            "fieldNameUnderscored": "mail"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Title",
+            "fieldNameUnderscored": "title"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Content",
+            "fieldNameUnderscored": "content"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldNameCapitalized": "Date",
+            "fieldNameUnderscored": "date"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "upvotes",
+            "fieldType": "Long",
+            "fieldNameCapitalized": "Upvotes",
+            "fieldNameUnderscored": "upvotes"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": true,
+    "fieldsContainCustomTime": true,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150208224241"
+}

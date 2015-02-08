@@ -1,0 +1,150 @@
+<div>
+
+    <h2 translate="jhipsterApp.comment.home.title">Comment</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveCommentModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="jhipsterApp.comment.home.createLabel">Create a new Comment</span>
+    </button>
+    <div class="modal fade" id="saveCommentModal" tabindex="-1" role="dialog" aria-labelledby="myCommentLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myCommentLabel" translate="jhipsterApp.comment.home.createOrEditLabel">Create or edit a Comment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="comment.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.author">Author</label>
+                            <input type="text" class="form-control"
+                                   ng-model="comment.author">
+                        </div>
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.mail">Mail</label>
+                            <input type="text" class="form-control"
+                                   ng-model="comment.mail">
+                        </div>
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.title">Title</label>
+                            <input type="text" class="form-control"
+                                   ng-model="comment.title">
+                        </div>
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.content">Content</label>
+                            <input type="text" class="form-control"
+                                   ng-model="comment.content">
+                        </div>
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.date">Date</label>
+                            <input type="date" class="form-control"
+                                   ng-model="comment.date">
+                        </div>
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.upvotes">Upvotes</label>
+                            <input type="number" class="form-control"
+                                   ng-model="comment.upvotes">
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="jhipsterApp.comment.article">article</label>
+                            <select class="form-control" ng-model="comment.article.id" ng-options="article.id as article.title for article in articles">
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteCommentConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(comment.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="jhipsterApp.comment.delete.question" translate-values="{id: '{{comment.id}}'}">Are you sure you want to delete Comment {{comment.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="jhipsterApp.comment.author">Author</th>
+                    <th translate="jhipsterApp.comment.mail">Mail</th>
+                    <th translate="jhipsterApp.comment.title">Title</th>
+                    <th translate="jhipsterApp.comment.content">Content</th>
+                    <th translate="jhipsterApp.comment.date">Date</th>
+                    <th translate="jhipsterApp.comment.upvotes">Upvotes</th>
+                    <th translate="jhipsterApp.comment.article">article</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="comment in comments">
+                    <td><a ui-sref="commentDetail({id:comment.id})">{{comment.id}}</a></td>
+                    <td>{{comment.author}}</td>
+                    <td>{{comment.mail}}</td>
+                    <td>{{comment.title}}</td>
+                    <td>{{comment.content}}</td>
+                    <td>{{comment.date}}</td>
+                    <td>{{comment.upvotes}}</td>
+                    <td>{{comment.article.title}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="commentDetail({id:comment.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(comment.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(comment.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
